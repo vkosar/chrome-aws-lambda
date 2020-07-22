@@ -186,25 +186,6 @@ class Chromium {
 
     return ['AWS_LAMBDA_FUNCTION_NAME', 'FUNCTION_NAME', 'FUNCTION_TARGET'].some((key) => process.env[key] !== undefined);
   }
-
-  /**
-   * Overloads puppeteer with useful methods and returns the resolved package.
-   */
-  static get puppeteer() {
-    for (const overload of ['Browser', 'FrameManager', 'Page']) {
-      require(`${__dirname}/puppeteer/lib/${overload}`);
-    }
-
-    try {
-      return require('puppeteer');
-    } catch (error) {
-      if (error.code !== 'MODULE_NOT_FOUND') {
-        throw error;
-      }
-
-      return require('puppeteer-core');
-    }
-  }
 }
 
 module.exports = Chromium;

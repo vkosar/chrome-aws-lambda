@@ -12,4 +12,3 @@ export const defaultViewport: {
 
 export const executablePath: Promise<string>;
 export const headless: boolean;
-export const puppeteer: typeof import('puppeteer');
