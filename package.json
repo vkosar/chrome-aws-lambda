@@ -17,6 +17,7 @@
     "node": ">= 8.10"
   },
   "scripts": {
+    "postinstall": "rm -rf ./layer || true && mkdir -p ./layer/node_modules/chrome-aws-lambda && cp -R ./bin ./layer/node_modules/chrome-aws-lambda",
     "postversion": "git push && git push --tags && npm publish"
   },
   "dependencies": {
